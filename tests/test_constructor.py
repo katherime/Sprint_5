@@ -12,16 +12,15 @@ class TestTransitionOnTabsinConstructor:
         current_element = WebDriverWait(driver, 3).until(
             expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "[class*='current']")))
         assert 'current' in current_element.get_attribute('class')
+        driver.quit()
 
     def test_transition_to_tab_about_sauses(self, driver, open_main_stellar_burgers):
         self.check_transition(driver, TestLocators.BUTTON_SAUSES)
-        driver.quit()
 
     def test_transition_to_tab_about_filling(self, driver, open_main_stellar_burgers):
         self.check_transition(driver, TestLocators.BUTTON_FILLING)
-        driver.quit()
 
     def test_transition_to_tab_about_bread(self, driver, open_main_stellar_burgers):
         driver.find_element(*TestLocators.BUTTON_FILLING).click()
         self.check_transition(driver, TestLocators.BUTTON_BREAD)
-        driver.quit()
+

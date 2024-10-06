@@ -1,3 +1,4 @@
+import urls_for_tests
 from locators import TestLocators
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,7 +14,7 @@ class TestRegistration:
         driver.find_element(*TestLocators.BUTTON_REGISTRATION).click()
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.ENTER_AFTER_REGISTRATION))
-        assert driver.current_url == 'https://stellarburgers.nomoreparties.site/login'
+        assert driver.current_url == urls_for_tests.stellar_burgers_login
         driver.quit()
 
     def test_registration_with_wrong_password(self, driver, open_registration_stellar_burgers):
@@ -23,5 +24,5 @@ class TestRegistration:
         driver.find_element(*TestLocators.BUTTON_REGISTRATION).click()
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.WARNING_WRONG_PASSWORD))
-        assert driver.current_url == 'https://stellarburgers.nomoreparties.site/register'
+        assert driver.current_url == urls_for_tests.stellar_burgers_registration
         driver.quit()
