@@ -15,7 +15,7 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.ENTER_AFTER_REGISTRATION))
         assert driver.current_url == urls_for_tests.stellar_burgers_login
-        driver.quit()
+
 
     def test_registration_with_wrong_password(self, driver, open_registration_stellar_burgers):
         driver.find_element(*TestLocators.NAME_INPUT_FIELD).send_keys('Катя')
@@ -25,4 +25,4 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.WARNING_WRONG_PASSWORD))
         assert driver.current_url == urls_for_tests.stellar_burgers_registration
-        driver.quit()
+

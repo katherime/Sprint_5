@@ -20,7 +20,7 @@ class TestLogin:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.MAIN_H1_CONSTRUCTOR))
         assert driver.find_element(*TestLocators.BUTTON_MAKE_ORDER)
-        driver.quit()
+
 
     def test_login_to_account_by_button_personal_cabinet(self, driver, open_main_stellar_burgers):
         driver.find_element(*TestLocators.BUTTON_PERSONAL_CABINET).click()
@@ -30,7 +30,7 @@ class TestLogin:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.MAIN_H1_CONSTRUCTOR))
         assert driver.find_element(*TestLocators.BUTTON_MAKE_ORDER)
-        driver.quit()
+
 
     def test_login_to_account_by_form_of_registration(self, driver, open_registration_stellar_burgers):
         driver.find_element(*TestLocators.BUTTON_LOGIN_TO_ACCOUNT).click()
@@ -38,7 +38,7 @@ class TestLogin:
         self.login_with_right_data(driver)
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.MAIN_H1_CONSTRUCTOR))
         assert driver.find_element(*TestLocators.BUTTON_MAKE_ORDER)
-        driver.quit()
+
 
     def test_login_to_account_by_form_of_recovery_password(self, driver,open_recovery_password_stellar_burgers):
         driver.find_element(*TestLocators.BUTTON_LOGIN_TO_ACCOUNT).click()
@@ -46,5 +46,5 @@ class TestLogin:
         self.login_with_right_data(driver)
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.MAIN_H1_CONSTRUCTOR))
         assert driver.find_element(*TestLocators.BUTTON_MAKE_ORDER)
-        driver.quit()
+
 
